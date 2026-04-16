@@ -1,0 +1,1520 @@
+22:33:22.377 [debug] Child {XPLoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.103.0>
+Start Call: Logger.Backends.Watcher.start_link({{XPLoggerFileBackend, :general_log}, {XPLoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+22:33:22.377 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.102.0>
+Start Call: Logger.Backends.Supervisor.start_link([{XPLoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:33:22.377 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.98.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:33:22.377 [info] Application logger started at :nonode@nohost
+22:33:22.377 [info] Application xp_mime started at :nonode@nohost
+22:33:22.377 [info] Application xp_hpax started at :nonode@nohost
+22:33:22.377 [info] Application crypto started at :nonode@nohost
+22:33:22.377 [info] Application asn1 started at :nonode@nohost
+22:33:22.377 [info] Application public_key started at :nonode@nohost
+22:33:22.379 [debug] Child :ssl_handler of Supervisor :logger_sup started
+Pid: #PID<0.108.0>
+Start Call: :logger_olp.start_link(:logger_std_h_ssl_handler, :logger_h_common, %{id: :ssl_handler, module: :logger_std_h, config: %{type: :standard_io, filesync_repeat_interval: :no_repeat}, level: :debug, filter_default: :stop, filters: [], formatter: {:ssl_logger, %{}}}, %{})
+Restart: :temporary
+Shutdown: 2000
+Type: :worker
+22:33:22.383 [info] Child :ssl_pem_cache of Supervisor :ssl_admin_sup started
+Pid: #PID<0.112.0>
+Start Call: :ssl_pem_cache.start_link([])
+Restart: :permanent
+Shutdown: 4000
+Type: :worker
+22:33:22.386 [info] Child :ssl_manager of Supervisor :ssl_admin_sup started
+Pid: #PID<0.113.0>
+Start Call: :ssl_manager.start_link([])
+Restart: :permanent
+Shutdown: 4000
+Type: :worker
+22:33:22.387 [info] Child :tls_client_ticket_store of Supervisor :ssl_admin_sup started
+Pid: #PID<0.114.0>
+Start Call: :tls_client_ticket_store.start_link(1000, 7200)
+Restart: :permanent
+Shutdown: 4000
+Type: :worker
+22:33:22.387 [info] Child :ssl_admin_sup of Supervisor :ssl_sup started
+Pid: #PID<0.111.0>
+Start Call: :ssl_admin_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.389 [info] Child :tls_connection_sup of Supervisor :tls_sup started
+Pid: #PID<0.117.0>
+Start Call: :tls_connection_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.390 [info] Child :ssl_listen_tracker_sup of Supervisor :tls_server_sup started
+Pid: #PID<0.119.0>
+Start Call: :ssl_listen_tracker_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.391 [info] Child :tls_server_session_ticket of Supervisor :tls_server_sup started
+Pid: #PID<0.120.0>
+Start Call: :tls_server_session_ticket_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.392 [info] Child :ssl_server_session_cache_sup of Supervisor :tls_server_sup started
+Pid: #PID<0.121.0>
+Start Call: :ssl_server_session_cache_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.392 [info] Child :ssl_upgrade_server_session_cache_sup of Supervisor :tls_server_sup started
+Pid: #PID<0.122.0>
+Start Call: :ssl_upgrade_server_session_cache_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.393 [info] Child :tls_server_sup of Supervisor :tls_sup started
+Pid: #PID<0.118.0>
+Start Call: :tls_server_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.393 [info] Child :tls_sup of Supervisor :ssl_connection_sup started
+Pid: #PID<0.116.0>
+Start Call: :tls_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.394 [info] Child :dtls_connection_sup of Supervisor :dtls_sup started
+Pid: #PID<0.124.0>
+Start Call: :dtls_connection_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.396 [info] Child :dtls_listener_sup of Supervisor :dtls_server_sup started
+Pid: #PID<0.126.0>
+Start Call: :dtls_listener_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.397 [info] Child :dtls_server_session_cache_sup of Supervisor :dtls_server_sup started
+Pid: #PID<0.127.0>
+Start Call: :dtls_server_session_cache_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.397 [info] Child :dtls_server_sup of Supervisor :dtls_sup started
+Pid: #PID<0.125.0>
+Start Call: :dtls_server_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.397 [info] Child :dtls_sup of Supervisor :ssl_connection_sup started
+Pid: #PID<0.123.0>
+Start Call: :dtls_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.397 [info] Child :ssl_connection_sup of Supervisor :ssl_sup started
+Pid: #PID<0.115.0>
+Start Call: :ssl_connection_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:33:22.397 [info] Application ssl started at :nonode@nohost
+22:33:22.398 [info] Application xp_mint started at :nonode@nohost
+22:33:22.399 [info] Application xp_nimble_options started at :nonode@nohost
+22:33:22.402 [info] Child XPNimblePool.TaskSupervisor of Supervisor #PID<0.133.0> (Supervisor.Default) started
+Pid: #PID<0.134.0>
+Start Call: Task.Supervisor.start_link([name: XPNimblePool.TaskSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:33:22.402 [info] Application xp_nimble_pool started at :nonode@nohost
+22:33:22.404 [info] Child :telemetry_handler_table of Supervisor :telemetry_sup started
+Pid: #PID<0.138.0>
+Start Call: :telemetry_handler_table.start_link()
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.404 [info] Application xp_telemetry started at :nonode@nohost
+22:33:22.404 [info] Application xp_finch started at :nonode@nohost
+22:33:22.424 [info] Child XPReq.Finch.PIDPartition0 of Supervisor XPReq.Finch started
+Pid: #PID<0.144.0>
+Start Call: Registry.Partition.start_link(XPReq.Finch.PIDPartition0, {:duplicate, XPReq.Finch, 0, 1, XPReq.Finch.KeyPartition0, XPReq.Finch.PIDPartition0, [], false})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.424 [info] Child XPReq.Finch of Supervisor XPReq.Finch.Supervisor started
+Pid: #PID<0.143.0>
+Start Call: Registry.start_link([keys: :duplicate, name: XPReq.Finch, meta: [config: %{pools: %{}, registry_name: XPReq.Finch, supervisor_name: XPReq.Finch.PoolSupervisor, manager_name: XPReq.Finch.PoolManager, default_pool_config: %{count: 1, size: 50, mod: XPFinch.HTTP1.Pool, conn_opts: [protocols: [:http1], transport_opts: [keepalive: true, nodelay: true, timeout: 5000], ssl_key_log_file_device: nil], pool_max_idle_time: :infinity, conn_max_idle_time: :infinity, start_pool_metrics?: false}}]])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:33:22.424 [info] Child XPReq.Finch.PoolSupervisor of Supervisor XPReq.Finch.Supervisor started
+Pid: #PID<0.145.0>
+Start Call: DynamicSupervisor.start_link([name: XPReq.Finch.PoolSupervisor, strategy: :one_for_one])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:33:22.424 [info] Child XPFinch.PoolManager of Supervisor XPReq.Finch.Supervisor started
+Pid: #PID<0.146.0>
+Start Call: XPFinch.PoolManager.start_link(%{pools: %{}, registry_name: XPReq.Finch, supervisor_name: XPReq.Finch.PoolSupervisor, manager_name: XPReq.Finch.PoolManager, default_pool_config: %{count: 1, size: 50, mod: XPFinch.HTTP1.Pool, conn_opts: [protocols: [:http1], transport_opts: [keepalive: true, nodelay: true, timeout: 5000], ssl_key_log_file_device: nil], pool_max_idle_time: :infinity, conn_max_idle_time: :infinity, start_pool_metrics?: false}})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.424 [info] Child XPReq.Finch of Supervisor #PID<0.141.0> (Supervisor.Default) started
+Pid: #PID<0.142.0>
+Start Call: XPFinch.start_link([name: XPReq.Finch, pools: %{default: [protocols: [:http1]]}])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.425 [info] Child XPReq.FinchSupervisor of Supervisor #PID<0.141.0> (Supervisor.Default) started
+Pid: #PID<0.147.0>
+Start Call: DynamicSupervisor.start_link([strategy: :one_for_one, name: XPReq.FinchSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:33:22.425 [info] Child XPReq.Test.Ownership of Supervisor #PID<0.141.0> (Supervisor.Default) started
+Pid: #PID<0.148.0>
+Start Call: XPReq.Test.Ownership.start_link([name: XPReq.Test.Ownership])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.425 [info] Application xp_req started at :nonode@nohost
+22:33:22.425 [info] Application burrito started at :nonode@nohost
+22:33:22.428 [info] Child XPBriefly.Entry of Supervisor XPBriefly.Supervisor started
+Pid: #PID<0.152.0>
+Start Call: XPBriefly.Entry.start_link([])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.429 [info] Application xp_briefly started at :nonode@nohost
+22:33:22.429 [info] Application xp_schematic started at :nonode@nohost
+22:33:22.429 [info] Application xp_typed_struct started at :nonode@nohost
+22:33:22.429 [info] Application xp_gen_lsp started at :nonode@nohost
+22:33:22.438 [info] Child XPSnowflake.Generator of Supervisor #PID<0.155.0> (Supervisor.Default) started
+Pid: #PID<0.156.0>
+Start Call: XPSnowflake.Generator.start_link(0, 1023)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.438 [info] Application xp_snowflake started at :nonode@nohost
+22:33:22.438 [info] Application xp_sourceror started at :nonode@nohost
+22:33:22.438 [info] Application xp_spitfire started at :nonode@nohost
+22:33:22.438 [info] Application xp_forge started at :nonode@nohost
+22:33:22.438 [info] Application xp_logger_file_backend started at :nonode@nohost
+22:33:22.442 [info] Child :ttb_autostart of Supervisor :runtime_tools_sup started
+Pid: #PID<0.160.0>
+Start Call: :ttb_autostart.start_link()
+Restart: :temporary
+Shutdown: 3000
+Type: :worker
+22:33:22.442 [info] Application runtime_tools started at :nonode@nohost
+22:33:22.442 [info] Application et started at :nonode@nohost
+22:33:22.442 [info] Application observer started at :nonode@nohost
+22:33:22.442 [info] Application xp_path_glob started at :nonode@nohost
+22:33:22.457 [info] Starting NodePortMapper on nonode@nohost
+22:33:22.457 [info] Child XPForge.NodePortMapper of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.164.0>
+Start Call: XPForge.NodePortMapper.start_link([])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.458 [info] Child XPForge.Document.Store of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.165.0>
+Start Call: XPForge.Document.Store.start_link([derive: [analysis: &XPForge.Ast.analyze/1]])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.459 [info] Child XPExpert.ProjectSupervisor of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.166.0>
+Start Call: DynamicSupervisor.start_link([name: XPExpert.ProjectSupervisor, strategy: :one_for_one])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:33:22.460 [info] Child XPExpert.DynamicSupervisor of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.167.0>
+Start Call: DynamicSupervisor.start_link([name: XPExpert.DynamicSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:33:22.461 [info] Child XPGenLSP.Assigns of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.168.0>
+Start Call: XPGenLSP.Assigns.start_link([name: XPExpert.Assigns])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.462 [info] Child :expert_task_queue of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.169.0>
+Start Call: Task.Supervisor.start_link([name: :expert_task_queue])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:33:22.464 [info] Child XPGenLSP.Buffer of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.170.0>
+Start Call: XPGenLSP.Buffer.start_link([name: XPExpert.Buffer])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.464 [info] Child XPExpert.ActiveProjects of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.171.0>
+Start Call: XPExpert.ActiveProjects.start_link()
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.464 [debug] [name: XPExpert, buffer: XPExpert.Buffer, task_supervisor: :expert_task_queue, dynamic_supervisor: XPExpert.DynamicSupervisor, assigns: XPExpert.Assigns]
+22:33:22.469 [info] Child XPExpert of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.172.0>
+Start Call: XPExpert.start_link([name: XPExpert, buffer: XPExpert.Buffer, task_supervisor: :expert_task_queue, dynamic_supervisor: XPExpert.DynamicSupervisor, assigns: XPExpert.Assigns])
+Restart: :permanent
+Shutdown: 500
+Type: :worker
+22:33:22.470 [info] Application xp_expert started at :nonode@nohost
+22:33:22.620 [debug] handled request client -> server initialize in 141ms
+22:33:22.626 [info] Server initialized, registering capabilities
+22:33:22.628 [debug] sent request server -> client client/registerCapability
+22:33:22.645 [info] [Project file:///home/alguien/Projects/elixir/automata] Starting project
+22:33:22.645 [debug] handled notification client -> server initialized in 21ms
+22:33:22.645 [debug] sent notification server -> client window/logMessage
+22:33:22.656 [info] Opened file:///home/alguien/Projects/elixir/automata/lib/automata.ex
+22:33:22.656 [debug] handled notification client -> server textDocument/didOpen in 11ms
+22:33:22.657 [info] Child {XPExpert.EngineSupervisor, "automata"} of Supervisor :"automata::supervisor" started
+Pid: #PID<0.178.0>
+Start Call: XPExpert.EngineSupervisor.start_link(%XPForge.Project{root_uri: "file:///home/alguien/Projects/elixir/automata", mix_exs_uri: "file:///home/alguien/Projects/elixir/automata/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 28809})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:22.659 [debug] sent request server -> client window/workDoneProgress/create
+22:33:22.662 [debug] sent notification server -> client $/progress
+22:33:22.670 [info] Child XPForge.EPMD of Supervisor :net_sup started
+Pid: #PID<0.181.0>
+Start Call: XPForge.EPMD.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+22:33:22.671 [info] Child :auth of Supervisor :net_sup started
+Pid: #PID<0.182.0>
+Start Call: :auth.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+22:33:22.674 [info] Child :net_kernel of Supervisor :net_sup started
+Pid: #PID<0.183.0>
+Start Call: :net_kernel.start_link(%{name: :"expert-manager-automata-28809@127.0.0.1", supervisor: :net_sup_dynamic, net_tickintensity: 4, net_ticktime: 60, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+22:33:22.674 [debug] Child :net_sup_dynamic of Supervisor :kernel_sup started
+Pid: #PID<0.180.0>
+Start Call: :erl_distribution.start_link(%{name: :"expert-manager-automata-28809@127.0.0.1", supervisor: :net_sup_dynamic, net_tickintensity: 4, net_ticktime: 60, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 1000
+Type: :supervisor
+22:33:22.678 [info] [Project file:///home/alguien/Projects/elixir/automata] Found elixir executable at /usr/bin/elixir
+22:33:22.678 [debug] sent notification server -> client window/logMessage
+22:33:22.678 [info] [Project file:///home/alguien/Projects/elixir/automata] Finding or building engine
+22:33:22.678 [debug] sent notification server -> client window/logMessage
+22:33:22.678 [debug] sent request server -> client window/workDoneProgress/create
+22:33:22.679 [debug] sent notification server -> client $/progress
+22:33:24.361 [debug] Building engine: Namespacing 4 files:
+  New: 4
+  Changed: 0
+  Deleted: 4
+
+
+22:33:24.365 [debug] Building engine: Rewriting 0 app files
+
+22:33:24.367 [debug] Building engine: Rewriting .beam files
+
+22:33:24.367 [debug] Building engine:  Found 0 protocols
+
+22:33:24.367 [debug] Building engine:  Found 0 app beam files
+
+22:33:24.367 [debug] Building engine: Finished namespacing .beam files
+
+22:33:24.369 [debug] Building engine: Rewriting 0 scripts
+
+22:33:24.370 [debug] Building engine: Rebuilding 0 boot files
+
+22:33:24.371 [debug] Building engine: Rewriting 0 config scripts.
+
+22:33:24.375 [info] Engine build available at: /home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns
+22:33:24.423 [info] ebin paths:
+["/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/patch/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_briefly/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_bunt/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_credo/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_deps_nix/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_elixir_sense/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_engine/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_file_system/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_forge/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_gen_lsp/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_hpax/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_jason/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_mint/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_nimble_options/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_nimble_parsec/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_path_glob/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_refactorex/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_schematic/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_snowflake/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_sourceror/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_spitfire/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_telemetry/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_typed_struct/ebin"]
+22:33:24.460 [debug] sent notification server -> client $/progress
+22:33:24.462 [debug] sent notification server -> client $/progress
+22:33:24.882 [debug] sent notification server -> client $/progress
+22:33:24.886 [debug] Node port message: ok
+
+22:33:25.143 [debug] Node port message: 
+22:33:25.134 [notice] Application mix exited: :stopped
+
+22:33:25.169 [debug] Node port message:     warning: redefining module Automata.MixProject (current version defined in memory)
+    â
+  1 â defmodule Automata.MixProject do
+    â ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    â
+    ââ /home/alguien/Projects/elixir/automata/mix.exs:1: Automata.MixProject (module)
+
+
+22:33:25.183 [debug] sent notification server -> client $/progress
+22:33:25.184 [debug] sent notification server -> client $/progress
+22:33:25.192 [debug] sent notification server -> client $/progress
+22:33:25.314 [debug] handled notification client -> server textDocument/didChange in 14ms
+22:33:25.352 [debug] Node port message: 
+22:33:25.352 [info] Build path /home/alguien/Projects/elixir/automata/.expert/build/erl-27/elixir-1.18 was compiled on a previous erlang version. Deleting
+
+22:33:25.365 [debug] sent notification server -> client $/progress
+22:33:25.365 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.366 [debug] sent notification server -> client $/progress
+22:33:25.368 [debug] sent notification server -> client $/progress
+22:33:25.368 [info] Child {XPExpert.Project.Node, "automata"} of Supervisor :"automata::supervisor" started
+Pid: #PID<0.179.0>
+Start Call: XPExpert.Project.Node.start_link(%XPForge.Project{root_uri: "file:///home/alguien/Projects/elixir/automata", mix_exs_uri: "file:///home/alguien/Projects/elixir/automata/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 28809})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:25.371 [info] Child {XPExpert.Project.Diagnostics, "automata"} of Supervisor :"automata::supervisor" started
+Pid: #PID<0.214.0>
+Start Call: XPExpert.Project.Diagnostics.start_link(%XPForge.Project{root_uri: "file:///home/alguien/Projects/elixir/automata", mix_exs_uri: "file:///home/alguien/Projects/elixir/automata/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 28809})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:25.373 [info] Child {XPExpert.Project.Intelligence, "automata"} of Supervisor :"automata::supervisor" started
+Pid: #PID<0.215.0>
+Start Call: XPExpert.Project.Intelligence.start_link(%XPForge.Project{root_uri: "file:///home/alguien/Projects/elixir/automata", mix_exs_uri: "file:///home/alguien/Projects/elixir/automata/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 28809})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:25.375 [info] Child XPExpert.Project.SearchListener of Supervisor :"automata::supervisor" started
+Pid: #PID<0.216.0>
+Start Call: XPExpert.Project.SearchListener.start_link(%XPForge.Project{root_uri: "file:///home/alguien/Projects/elixir/automata", mix_exs_uri: "file:///home/alguien/Projects/elixir/automata/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 28809})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:33:25.376 [info] Project node started for automata
+22:33:25.376 [debug] sent notification server -> client window/logMessage
+22:33:25.376 [info] [Project file:///home/alguien/Projects/elixir/automata] Engine initialized for project automata
+22:33:25.376 [debug] sent notification server -> client window/logMessage
+22:33:25.432 [debug] sent request server -> client window/workDoneProgress/create
+22:33:25.433 [debug] Node port message: 
+22:33:25.432 [info] Building automata
+
+22:33:25.434 [debug] Node port message: 
+22:33:25.432 [debug] sent request server -> client window/workDoneProgress/create
+
+22:33:25.434 [debug] sent notification server -> client $/progress
+22:33:25.435 [debug] Node port message: 
+22:33:25.434 [debug] sent notification server -> client $/progress
+
+22:33:25.477 [debug] sent notification server -> client $/progress
+22:33:25.477 [debug] Node port message: 
+22:33:25.477 [debug] sent notification server -> client $/progress
+
+22:33:25.634 [debug] handled notification client -> server textDocument/didChange in 21ms
+22:33:25.899 [debug] handled notification client -> server textDocument/didChange in 5ms
+22:33:25.931 [debug] handled notification client -> server textDocument/didChange in 24ms
+22:33:26.130 [info] Completion for XpPos<<73, 4>>
+22:33:26.199 [info] Local completions are: []
+22:33:26.207 [info] Emitting Completions: []
+22:33:26.228 [debug] handled request client -> server textDocument/completion in 295ms
+22:33:27.077 [debug] Node port message: * creating /home/alguien/.mix/archives/hex-2.4.1
+
+22:33:27.078 [debug] sent notification server -> client $/progress
+22:33:27.079 [debug] Node port message: 
+22:33:27.078 [debug] sent notification server -> client $/progress
+
+22:33:28.250 [debug] Node port message: * creating /home/alguien/.mix/elixir/1-18/rebar3
+
+22:33:28.250 [debug] sent notification server -> client $/progress
+22:33:28.254 [debug] Node port message: 
+22:33:28.250 [debug] sent notification server -> client $/progress
+
+22:33:28.319 [debug] Node port message: All dependencies are up to date
+
+22:33:28.319 [debug] sent notification server -> client $/progress
+22:33:28.320 [debug] Node port message: 
+22:33:28.319 [debug] sent notification server -> client $/progress
+
+22:33:28.332 [debug] sent notification server -> client $/progress
+22:33:28.333 [debug] Node port message: 
+22:33:28.332 [debug] sent notification server -> client $/progress
+
+22:33:28.353 [debug] Node port message: 
+22:33:28.353 [info] Loaded []
+
+22:33:28.353 [debug] sent notification server -> client $/progress
+22:33:28.355 [debug] Node port message: 
+22:33:28.353 [debug] sent notification server -> client $/progress
+
+22:33:28.454 [debug] Node port message: Compiling 1 file (.ex)
+
+22:33:28.486 [debug] sent notification server -> client $/progress
+22:33:28.486 [debug] Node port message: 
+22:33:28.486 [debug] sent notification server -> client $/progress
+
+22:33:28.515 [debug] Node port message: Generated automata app
+
+22:33:28.516 [debug] Node port message: 
+22:33:28.516 [info] Compile completed with status ok Produced 0 diagnostics []
+
+22:33:28.529 [debug] sent notification server -> client $/progress
+22:33:28.530 [debug] Node port message: 
+22:33:28.529 [debug] sent notification server -> client $/progress
+
+22:33:28.534 [info] Compiled automata in 3.1 seconds
+22:33:28.559 [debug] Node port message: 
+22:33:28.559 [info] Plugins found 0 results in 0.019 ms
+
+22:33:28.627 [debug] Node port message: 
+22:33:28.627 [info] backend reports empty
+
+22:33:28.668 [debug] Node port message: 
+22:33:28.667 [info] Plugins found 0 results in 0.015 ms
+
+22:33:28.677 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:33:28.890 [debug] sent request server -> client window/workDoneProgress/create
+22:33:28.891 [debug] sent notification server -> client $/progress
+22:33:28.892 [debug] Node port message: 
+22:33:28.890 [debug] sent request server -> client window/workDoneProgress/create
+
+22:33:28.892 [debug] Node port message: 
+22:33:28.891 [debug] sent notification server -> client $/progress
+
+22:33:28.903 [debug] sent notification server -> client $/progress
+22:33:28.907 [debug] Node port message: 
+22:33:28.903 [debug] sent notification server -> client $/progress
+
+22:33:29.288 [debug] sent notification server -> client $/progress
+22:33:29.289 [debug] Node port message: 
+22:33:29.288 [debug] sent notification server -> client $/progress
+
+22:33:30.579 [debug] handled notification client -> server textDocument/didChange in 4ms
+22:33:30.630 [debug] Node port message: 
+22:33:30.630 [info] Plugins found 0 results in 0.012 ms
+
+22:33:30.630 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:33:31.350 [debug] handled notification client -> server textDocument/didChange in 2ms
+22:33:31.402 [debug] Node port message: 
+22:33:31.401 [info] Plugins found 0 results in 0.018 ms
+
+22:33:31.402 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:33:32.492 [debug] handled notification client -> server textDocument/didSave in 4ms
+22:33:32.543 [debug] Node port message: 
+22:33:32.543 [info] Building automata
+
+22:33:32.543 [debug] sent request server -> client window/workDoneProgress/create
+22:33:32.543 [debug] Node port message: 
+22:33:32.543 [debug] sent request server -> client window/workDoneProgress/create
+
+22:33:32.544 [debug] sent notification server -> client $/progress
+22:33:32.544 [debug] sent notification server -> client $/progress
+22:33:32.545 [debug] Node port message: 
+22:33:32.544 [debug] sent notification server -> client $/progress
+
+22:33:32.545 [debug] Node port message: 
+22:33:32.544 [debug] sent notification server -> client $/progress
+
+22:33:32.558 [debug] Node port message: Compiling 1 file (.ex)
+
+22:33:32.586 [debug] sent notification server -> client $/progress
+22:33:32.587 [debug] Node port message: 
+22:33:32.586 [debug] sent notification server -> client $/progress
+
+22:33:32.594 [debug] Node port message: Generated automata app
+
+22:33:32.595 [debug] Node port message: 
+22:33:32.595 [info] Compile completed with status ok Produced 0 diagnostics []
+
+22:33:32.595 [debug] sent notification server -> client $/progress
+22:33:32.596 [info] Compiled automata in 52 ms
+22:33:32.596 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:33:32.596 [debug] Node port message: 
+22:33:32.595 [info] Plugins found 0 results in 0.008 ms
+
+22:33:32.595 [debug] sent notification server -> client $/progress
+
+22:33:35.834 [debug] handled notification client -> server textDocument/didSave in 1ms
+22:33:35.885 [debug] Node port message: 
+22:33:35.885 [info] Building automata
+
+22:33:35.885 [debug] sent request server -> client window/workDoneProgress/create
+22:33:35.886 [debug] Node port message: 
+22:33:35.885 [debug] sent request server -> client window/workDoneProgress/create
+
+22:33:35.886 [debug] sent notification server -> client $/progress
+22:33:35.886 [debug] Node port message: 
+22:33:35.886 [debug] sent notification server -> client $/progress
+
+22:33:35.887 [debug] sent notification server -> client $/progress
+22:33:35.887 [debug] Node port message: 
+22:33:35.887 [debug] sent notification server -> client $/progress
+
+22:33:35.894 [debug] Node port message: 
+22:33:35.894 [info] Compile completed with status noop Produced 0 diagnostics []
+
+22:33:35.894 [debug] sent notification server -> client $/progress
+22:33:35.895 [info] Compiled automata in 9 ms
+22:33:35.895 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:33:35.895 [debug] Node port message: 
+22:33:35.894 [info] Plugins found 0 results in 0.011 ms
+
+22:33:35.894 [debug] sent notification server -> client $/progress
+
+22:35:31.532 [info] Opened file:///home/alguien/Projects/elixir/automata/test/automata_test.exs
+22:35:31.532 [debug] handled notification client -> server textDocument/didOpen in 882µs
+22:35:33.943 [debug] handled notification client -> server textDocument/didChange in 764µs
+22:35:33.999 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:35:33.999 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:35:33.999 [debug] Node port message: 
+22:35:33.999 [info] Plugins found 0 results in 0.007 ms
+
+22:35:34.382 [debug] handled notification client -> server textDocument/didChange in 1ms
+22:35:34.388 [debug] handled notification client -> server textDocument/didChange in 1ms
+22:35:34.402 [info] Completion for XpPos<<36, 4>>
+22:35:34.500 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:35:34.500 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:35:34.500 [debug] Node port message: 
+22:35:34.500 [info] Plugins found 0 results in 0.009 ms
+
+22:35:35.509 [debug] handled notification client -> server textDocument/didSave in 2ms
+22:35:35.560 [debug] sent request server -> client window/workDoneProgress/create
+22:35:35.560 [debug] Node port message: 
+22:35:35.560 [info] Building automata
+
+22:35:35.561 [debug] Node port message: 
+22:35:35.560 [debug] sent request server -> client window/workDoneProgress/create
+
+22:35:35.563 [debug] sent notification server -> client $/progress
+22:35:35.563 [debug] sent notification server -> client $/progress
+22:35:35.564 [debug] Node port message: 
+22:35:35.563 [debug] sent notification server -> client $/progress
+
+22:35:35.564 [debug] Node port message: 
+22:35:35.563 [debug] sent notification server -> client $/progress
+
+22:35:35.574 [debug] Node port message: 
+22:35:35.574 [info] Compile completed with status noop Produced 0 diagnostics []
+
+22:35:35.576 [debug] sent notification server -> client $/progress
+22:35:35.576 [debug] Node port message: 
+22:35:35.576 [debug] sent notification server -> client $/progress
+
+22:35:35.576 [info] Compiled automata in 16 ms
+22:35:35.577 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:35:35.577 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:35:35.577 [debug] Node port message: 
+22:35:35.576 [info] Plugins found 0 results in 0.013 ms
+
+22:35:39.761 [info] Local completions are: []
+22:35:39.761 [info] Emitting Completions: []
+22:35:39.761 [debug] handled request client -> server textDocument/completion in 5373ms
+22:36:57.732 [info] Opened file:///home/alguien/Projects/elixir/automata/mix.exs
+22:36:57.733 [debug] handled notification client -> server textDocument/didOpen in 559µs
+22:37:46.616 [debug] handled notification client -> server textDocument/didChange in 676µs
+22:37:46.667 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:46.667 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:46.667 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:46.668 [debug] Node port message: 
+22:37:46.668 [info] Plugins found 0 results in 0.007 ms
+
+22:37:47.023 [debug] handled notification client -> server textDocument/didChange in 979µs
+22:37:47.030 [debug] handled notification client -> server textDocument/didChange in 1ms
+22:37:47.049 [info] Completion for XpPos<<54, 4>>
+22:37:47.093 [info] Local completions are: []
+22:37:47.094 [info] Emitting Completions: []
+22:37:47.094 [debug] handled request client -> server textDocument/completion in 64ms
+22:37:47.141 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:47.141 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:47.141 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:47.141 [debug] Node port message: 
+22:37:47.141 [info] Plugins found 0 results in 0.008 ms
+
+22:37:48.013 [debug] handled notification client -> server textDocument/didSave in 518µs
+22:37:48.064 [debug] Node port message: 
+22:37:48.064 [info] Building automata
+
+22:37:48.064 [debug] sent request server -> client window/workDoneProgress/create
+22:37:48.064 [debug] Node port message: 
+22:37:48.064 [debug] sent request server -> client window/workDoneProgress/create
+
+22:37:48.064 [debug] sent notification server -> client $/progress
+22:37:48.065 [debug] Node port message: 
+22:37:48.064 [debug] sent notification server -> client $/progress
+
+22:37:48.065 [debug] sent notification server -> client $/progress
+22:37:48.065 [debug] Node port message: 
+22:37:48.065 [debug] sent notification server -> client $/progress
+
+22:37:48.073 [debug] Node port message: Generated automata app
+
+22:37:48.075 [debug] Node port message: 
+22:37:48.075 [info] Compile completed with status ok Produced 0 diagnostics []
+
+22:37:48.076 [debug] sent notification server -> client $/progress
+22:37:48.077 [info] Compiled automata in 12 ms
+22:37:48.077 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:48.077 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:48.077 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:48.077 [debug] Node port message: 
+22:37:48.076 [info] Plugins found 0 results in 0.01 ms
+
+22:37:48.076 [debug] sent notification server -> client $/progress
+
+22:37:51.995 [debug] handled notification client -> server textDocument/didSave in 835µs
+22:37:52.046 [debug] Node port message: 
+22:37:52.046 [info] Building automata
+
+22:37:52.046 [debug] sent request server -> client window/workDoneProgress/create
+22:37:52.046 [debug] Node port message: 
+22:37:52.046 [debug] sent request server -> client window/workDoneProgress/create
+
+22:37:52.047 [debug] sent notification server -> client $/progress
+22:37:52.047 [debug] sent notification server -> client $/progress
+22:37:52.047 [debug] Node port message: 
+22:37:52.047 [debug] sent notification server -> client $/progress
+
+22:37:52.048 [debug] Node port message: 
+22:37:52.047 [debug] sent notification server -> client $/progress
+
+22:37:52.055 [debug] Node port message: Generated automata app
+
+22:37:52.056 [debug] Node port message: 
+22:37:52.056 [info] Compile completed with status ok Produced 0 diagnostics []
+
+22:37:52.056 [debug] sent notification server -> client $/progress
+22:37:52.057 [info] Compiled automata in 10 ms
+22:37:52.057 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:52.057 [debug] Node port message: 
+22:37:52.057 [info] Plugins found 0 results in 0.009 ms
+
+22:37:52.057 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:52.057 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:37:52.057 [debug] Node port message: 
+22:37:52.056 [debug] sent notification server -> client $/progress
+
+22:38:03.584 [debug] handled notification client -> server textDocument/didChange in 1ms
+22:38:03.635 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:03.636 [debug] Node port message: 
+22:38:03.635 [info] Plugins found 0 results in 0.009 ms
+
+22:38:03.638 [warning] Spitfire crashed when parsing /home/alguien/Projects/elixir/automata/mix.exs. This file will not be used in search index.
+** (FunctionClauseError) no function clause matching in XPSpitfire.peek_token/1
+    (xp_spitfire 0.3.0) lib/spitfire.ex:2547: XPSpitfire.peek_token(%{tokens: [nil | :eot], literal_encoder: #Function<0.125461684/2 in XPForge.Ast.Parser.Spitfire.opts/0>, errors: [{[line: 29, column: 5], "missing closing brace for tuple"}], current_token: {:fake_closing_brace, nil}, fuel: 150, peek_token: nil, nesting: 0})
+    (xp_spitfire 0.3.0) lib/spitfire.ex:317: anonymous fn/7 in XPSpitfire.parse_expression/6
+    (xp_spitfire 0.3.0) lib/spitfire/while.ex:49: XPSpitfire.While.do_while/2
+    (xp_spitfire 0.3.0) lib/spitfire.ex:1140: anonymous fn/1 in XPSpitfire.parse_do_block/2
+    (xp_spitfire 0.3.0) lib/spitfire/while.ex:5: XPSpitfire.While2.recurse/3
+    (xp_spitfire 0.3.0) lib/spitfire.ex:1132: anonymous fn/1 in XPSpitfire.parse_do_block/2
+    (xp_spitfire 0.3.0) lib/spitfire/while.ex:5: XPSpitfire.While2.recurse/3
+    (xp_spitfire 0.3.0) lib/spitfire.ex:1130: XPSpitfire.parse_do_block/2
+
+22:38:03.638 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:03.638 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:03.732 [debug] handled notification client -> server textDocument/didChange in 769µs
+22:38:03.789 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:03.789 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:03.789 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:03.789 [debug] Node port message: 
+22:38:03.789 [info] Plugins found 0 results in 0.01 ms
+
+22:38:04.180 [debug] handled notification client -> server textDocument/didChange in 1ms
+22:38:04.275 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:04.275 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:04.275 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:04.275 [debug] Node port message: 
+22:38:04.274 [info] Plugins found 0 results in 0.011 ms
+
+22:38:06.845 [debug] handled notification client -> server textDocument/didChange in 895µs
+22:38:06.933 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:06.933 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:06.933 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:06.934 [debug] Node port message: 
+22:38:06.933 [info] Plugins found 0 results in 0.01 ms
+
+22:38:07.040 [debug] handled notification client -> server textDocument/didChange in 790µs
+22:38:07.125 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:07.125 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:07.125 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:07.125 [debug] Node port message: 
+22:38:07.124 [info] Plugins found 0 results in 0.009 ms
+
+22:38:07.351 [debug] handled notification client -> server textDocument/didChange in 1ms
+22:38:07.359 [debug] handled notification client -> server textDocument/didChange in 2ms
+22:38:07.380 [info] Completion for XpPos<<83, 4>>
+22:38:07.381 [info] Local completions are: []
+22:38:07.381 [info] Emitting Completions: []
+22:38:07.381 [debug] handled request client -> server textDocument/completion in 22ms
+22:38:07.411 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:07.411 [debug] Node port message: 
+22:38:07.411 [info] Plugins found 0 results in 0.006 ms
+
+22:38:07.411 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:07.411 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:18.958 [debug] handled notification client -> server textDocument/didChange in 944µs
+22:38:19.009 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:19.009 [debug] Node port message: 
+22:38:19.009 [info] Plugins found 0 results in 0.005 ms
+
+22:38:19.009 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:19.009 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:21.773 [debug] handled notification client -> server textDocument/didChange in 1ms
+22:38:21.825 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:21.825 [debug] Node port message: 
+22:38:21.824 [info] Plugins found 0 results in 0.007 ms
+
+22:38:21.828 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:21.828 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:21.962 [debug] handled notification client -> server textDocument/didChange in 1ms
+22:38:22.014 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:22.014 [debug] Node port message: 
+22:38:22.013 [info] Plugins found 0 results in 0.009 ms
+
+22:38:22.017 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:22.017 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:22.110 [debug] handled notification client -> server textDocument/didChange in 1ms
+22:38:22.199 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:22.199 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:22.199 [debug] sent notification server -> client textDocument/publishDiagnostics
+22:38:22.199 [debug] Node port message: 
+22:38:22.199 [info] Plugins found 0 results in 0.015 ms
+
+22:38:26.520 [debug] handled notification client -> server textDocument/didClose in 3ms
+22:38:42.054 [debug] sent notification server -> client window/logMessage
+22:38:42.054 [info] Shutting down
+22:38:42.054 [debug] handled request client -> server shutdown in 2ms
+22:38:43.944 [debug] Child {XPLoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.103.0>
+Start Call: Logger.Backends.Watcher.start_link({{XPLoggerFileBackend, :general_log}, {XPLoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+22:38:43.944 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.102.0>
+Start Call: Logger.Backends.Supervisor.start_link([{XPLoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:38:43.944 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.98.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:38:43.944 [info] Application logger started at :nonode@nohost
+22:38:43.944 [info] Application xp_mime started at :nonode@nohost
+22:38:43.944 [info] Application xp_hpax started at :nonode@nohost
+22:38:43.944 [info] Application crypto started at :nonode@nohost
+22:38:43.945 [info] Application asn1 started at :nonode@nohost
+22:38:43.945 [info] Application public_key started at :nonode@nohost
+22:38:43.947 [debug] Child :ssl_handler of Supervisor :logger_sup started
+Pid: #PID<0.108.0>
+Start Call: :logger_olp.start_link(:logger_std_h_ssl_handler, :logger_h_common, %{id: :ssl_handler, module: :logger_std_h, config: %{type: :standard_io, filesync_repeat_interval: :no_repeat}, level: :debug, filters: [], formatter: {:ssl_logger, %{}}, filter_default: :stop}, %{})
+Restart: :temporary
+Shutdown: 2000
+Type: :worker
+22:38:43.951 [info] Child :ssl_pem_cache of Supervisor :ssl_admin_sup started
+Pid: #PID<0.112.0>
+Start Call: :ssl_pem_cache.start_link([])
+Restart: :permanent
+Shutdown: 4000
+Type: :worker
+22:38:43.954 [info] Child :ssl_manager of Supervisor :ssl_admin_sup started
+Pid: #PID<0.113.0>
+Start Call: :ssl_manager.start_link([])
+Restart: :permanent
+Shutdown: 4000
+Type: :worker
+22:38:43.955 [info] Child :tls_client_ticket_store of Supervisor :ssl_admin_sup started
+Pid: #PID<0.114.0>
+Start Call: :tls_client_ticket_store.start_link(1000, 7200)
+Restart: :permanent
+Shutdown: 4000
+Type: :worker
+22:38:43.955 [info] Child :ssl_admin_sup of Supervisor :ssl_sup started
+Pid: #PID<0.111.0>
+Start Call: :ssl_admin_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.957 [info] Child :tls_connection_sup of Supervisor :tls_sup started
+Pid: #PID<0.117.0>
+Start Call: :tls_connection_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.959 [info] Child :ssl_listen_tracker_sup of Supervisor :tls_server_sup started
+Pid: #PID<0.119.0>
+Start Call: :ssl_listen_tracker_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.959 [info] Child :tls_server_session_ticket of Supervisor :tls_server_sup started
+Pid: #PID<0.120.0>
+Start Call: :tls_server_session_ticket_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.960 [info] Child :ssl_server_session_cache_sup of Supervisor :tls_server_sup started
+Pid: #PID<0.121.0>
+Start Call: :ssl_server_session_cache_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.961 [info] Child :ssl_upgrade_server_session_cache_sup of Supervisor :tls_server_sup started
+Pid: #PID<0.122.0>
+Start Call: :ssl_upgrade_server_session_cache_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.961 [info] Child :tls_server_sup of Supervisor :tls_sup started
+Pid: #PID<0.118.0>
+Start Call: :tls_server_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.961 [info] Child :tls_sup of Supervisor :ssl_connection_sup started
+Pid: #PID<0.116.0>
+Start Call: :tls_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.962 [info] Child :dtls_connection_sup of Supervisor :dtls_sup started
+Pid: #PID<0.124.0>
+Start Call: :dtls_connection_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.963 [info] Child :dtls_listener_sup of Supervisor :dtls_server_sup started
+Pid: #PID<0.126.0>
+Start Call: :dtls_listener_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.964 [info] Child :dtls_server_session_cache_sup of Supervisor :dtls_server_sup started
+Pid: #PID<0.127.0>
+Start Call: :dtls_server_session_cache_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.964 [info] Child :dtls_server_sup of Supervisor :dtls_sup started
+Pid: #PID<0.125.0>
+Start Call: :dtls_server_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.964 [info] Child :dtls_sup of Supervisor :ssl_connection_sup started
+Pid: #PID<0.123.0>
+Start Call: :dtls_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.964 [info] Child :ssl_connection_sup of Supervisor :ssl_sup started
+Pid: #PID<0.115.0>
+Start Call: :ssl_connection_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+22:38:43.964 [info] Application ssl started at :nonode@nohost
+22:38:43.965 [info] Application xp_mint started at :nonode@nohost
+22:38:43.965 [info] Application xp_nimble_options started at :nonode@nohost
+22:38:43.969 [info] Child XPNimblePool.TaskSupervisor of Supervisor #PID<0.133.0> (Supervisor.Default) started
+Pid: #PID<0.134.0>
+Start Call: Task.Supervisor.start_link([name: XPNimblePool.TaskSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:38:43.969 [info] Application xp_nimble_pool started at :nonode@nohost
+22:38:43.970 [info] Child :telemetry_handler_table of Supervisor :telemetry_sup started
+Pid: #PID<0.138.0>
+Start Call: :telemetry_handler_table.start_link()
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:43.971 [info] Application xp_telemetry started at :nonode@nohost
+22:38:43.971 [info] Application xp_finch started at :nonode@nohost
+22:38:43.990 [info] Child XPReq.Finch.PIDPartition0 of Supervisor XPReq.Finch started
+Pid: #PID<0.144.0>
+Start Call: Registry.Partition.start_link(XPReq.Finch.PIDPartition0, {:duplicate, XPReq.Finch, 0, 1, XPReq.Finch.KeyPartition0, XPReq.Finch.PIDPartition0, [], false})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:43.990 [info] Child XPReq.Finch of Supervisor XPReq.Finch.Supervisor started
+Pid: #PID<0.143.0>
+Start Call: Registry.start_link([keys: :duplicate, name: XPReq.Finch, meta: [config: %{pools: %{}, registry_name: XPReq.Finch, supervisor_name: XPReq.Finch.PoolSupervisor, manager_name: XPReq.Finch.PoolManager, default_pool_config: %{count: 1, size: 50, mod: XPFinch.HTTP1.Pool, conn_opts: [protocols: [:http1], transport_opts: [keepalive: true, nodelay: true, timeout: 5000], ssl_key_log_file_device: nil], pool_max_idle_time: :infinity, conn_max_idle_time: :infinity, start_pool_metrics?: false}}]])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:38:43.991 [info] Child XPReq.Finch.PoolSupervisor of Supervisor XPReq.Finch.Supervisor started
+Pid: #PID<0.145.0>
+Start Call: DynamicSupervisor.start_link([name: XPReq.Finch.PoolSupervisor, strategy: :one_for_one])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:38:43.991 [info] Child XPFinch.PoolManager of Supervisor XPReq.Finch.Supervisor started
+Pid: #PID<0.146.0>
+Start Call: XPFinch.PoolManager.start_link(%{pools: %{}, registry_name: XPReq.Finch, supervisor_name: XPReq.Finch.PoolSupervisor, manager_name: XPReq.Finch.PoolManager, default_pool_config: %{count: 1, size: 50, mod: XPFinch.HTTP1.Pool, conn_opts: [protocols: [:http1], transport_opts: [keepalive: true, nodelay: true, timeout: 5000], ssl_key_log_file_device: nil], pool_max_idle_time: :infinity, conn_max_idle_time: :infinity, start_pool_metrics?: false}})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:43.991 [info] Child XPReq.Finch of Supervisor #PID<0.141.0> (Supervisor.Default) started
+Pid: #PID<0.142.0>
+Start Call: XPFinch.start_link([name: XPReq.Finch, pools: %{default: [protocols: [:http1]]}])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:43.991 [info] Child XPReq.FinchSupervisor of Supervisor #PID<0.141.0> (Supervisor.Default) started
+Pid: #PID<0.147.0>
+Start Call: DynamicSupervisor.start_link([strategy: :one_for_one, name: XPReq.FinchSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:38:43.991 [info] Child XPReq.Test.Ownership of Supervisor #PID<0.141.0> (Supervisor.Default) started
+Pid: #PID<0.148.0>
+Start Call: XPReq.Test.Ownership.start_link([name: XPReq.Test.Ownership])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:43.991 [info] Application xp_req started at :nonode@nohost
+22:38:43.991 [info] Application burrito started at :nonode@nohost
+22:38:43.995 [info] Child XPBriefly.Entry of Supervisor XPBriefly.Supervisor started
+Pid: #PID<0.152.0>
+Start Call: XPBriefly.Entry.start_link([])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:43.995 [info] Application xp_briefly started at :nonode@nohost
+22:38:43.995 [info] Application xp_schematic started at :nonode@nohost
+22:38:43.995 [info] Application xp_typed_struct started at :nonode@nohost
+22:38:43.995 [info] Application xp_gen_lsp started at :nonode@nohost
+22:38:44.003 [info] Child XPSnowflake.Generator of Supervisor #PID<0.155.0> (Supervisor.Default) started
+Pid: #PID<0.156.0>
+Start Call: XPSnowflake.Generator.start_link(0, 1023)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:44.003 [info] Application xp_snowflake started at :nonode@nohost
+22:38:44.003 [info] Application xp_sourceror started at :nonode@nohost
+22:38:44.003 [info] Application xp_spitfire started at :nonode@nohost
+22:38:44.003 [info] Application xp_forge started at :nonode@nohost
+22:38:44.003 [info] Application xp_logger_file_backend started at :nonode@nohost
+22:38:44.007 [info] Child :ttb_autostart of Supervisor :runtime_tools_sup started
+Pid: #PID<0.160.0>
+Start Call: :ttb_autostart.start_link()
+Restart: :temporary
+Shutdown: 3000
+Type: :worker
+22:38:44.007 [info] Application runtime_tools started at :nonode@nohost
+22:38:44.007 [info] Application et started at :nonode@nohost
+22:38:44.007 [info] Application observer started at :nonode@nohost
+22:38:44.007 [info] Application xp_path_glob started at :nonode@nohost
+22:38:44.019 [info] Starting NodePortMapper on nonode@nohost
+22:38:44.019 [info] Child XPForge.NodePortMapper of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.164.0>
+Start Call: XPForge.NodePortMapper.start_link([])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:44.021 [info] Child XPForge.Document.Store of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.165.0>
+Start Call: XPForge.Document.Store.start_link([derive: [analysis: &XPForge.Ast.analyze/1]])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:44.022 [info] Child XPExpert.ProjectSupervisor of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.166.0>
+Start Call: DynamicSupervisor.start_link([name: XPExpert.ProjectSupervisor, strategy: :one_for_one])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:38:44.022 [info] Child XPExpert.DynamicSupervisor of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.167.0>
+Start Call: DynamicSupervisor.start_link([name: XPExpert.DynamicSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:38:44.023 [info] Child XPGenLSP.Assigns of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.168.0>
+Start Call: XPGenLSP.Assigns.start_link([name: XPExpert.Assigns])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:44.023 [info] Child :expert_task_queue of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.169.0>
+Start Call: Task.Supervisor.start_link([name: :expert_task_queue])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+22:38:44.024 [info] Child XPGenLSP.Buffer of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.170.0>
+Start Call: XPGenLSP.Buffer.start_link([name: XPExpert.Buffer])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:44.025 [info] Child XPExpert.ActiveProjects of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.171.0>
+Start Call: XPExpert.ActiveProjects.start_link()
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:44.025 [debug] [name: XPExpert, buffer: XPExpert.Buffer, task_supervisor: :expert_task_queue, dynamic_supervisor: XPExpert.DynamicSupervisor, assigns: XPExpert.Assigns]
+22:38:44.030 [info] Child XPExpert of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.172.0>
+Start Call: XPExpert.start_link([name: XPExpert, buffer: XPExpert.Buffer, task_supervisor: :expert_task_queue, dynamic_supervisor: XPExpert.DynamicSupervisor, assigns: XPExpert.Assigns])
+Restart: :permanent
+Shutdown: 500
+Type: :worker
+22:38:44.030 [info] Application xp_expert started at :nonode@nohost
+22:38:44.175 [debug] handled request client -> server initialize in 133ms
+22:38:44.184 [info] Server initialized, registering capabilities
+22:38:44.186 [debug] sent request server -> client client/registerCapability
+22:38:44.197 [info] [Project file:///home/alguien/Projects/elixir/automata] Starting project
+22:38:44.197 [debug] handled notification client -> server initialized in 15ms
+22:38:44.197 [debug] sent notification server -> client window/logMessage
+22:38:44.208 [info] Child {XPExpert.EngineSupervisor, "automata"} of Supervisor :"automata::supervisor" started
+Pid: #PID<0.178.0>
+Start Call: XPExpert.EngineSupervisor.start_link(%XPForge.Project{root_uri: "file:///home/alguien/Projects/elixir/automata", mix_exs_uri: "file:///home/alguien/Projects/elixir/automata/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 1391})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:44.210 [info] Opened file:///home/alguien/Projects/elixir/automata/lib/automata.ex
+22:38:44.210 [debug] handled notification client -> server textDocument/didOpen in 13ms
+22:38:44.211 [debug] sent request server -> client window/workDoneProgress/create
+22:38:44.213 [debug] sent notification server -> client $/progress
+22:38:44.221 [info] Child XPForge.EPMD of Supervisor :net_sup started
+Pid: #PID<0.181.0>
+Start Call: XPForge.EPMD.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+22:38:44.222 [info] Child :auth of Supervisor :net_sup started
+Pid: #PID<0.182.0>
+Start Call: :auth.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+22:38:44.225 [info] Child :net_kernel of Supervisor :net_sup started
+Pid: #PID<0.183.0>
+Start Call: :net_kernel.start_link(%{name: :"expert-manager-automata-1391@127.0.0.1", supervisor: :net_sup_dynamic, net_tickintensity: 4, net_ticktime: 60, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+22:38:44.225 [debug] Child :net_sup_dynamic of Supervisor :kernel_sup started
+Pid: #PID<0.180.0>
+Start Call: :erl_distribution.start_link(%{name: :"expert-manager-automata-1391@127.0.0.1", supervisor: :net_sup_dynamic, net_tickintensity: 4, net_ticktime: 60, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 1000
+Type: :supervisor
+22:38:44.230 [info] [Project file:///home/alguien/Projects/elixir/automata] Found elixir executable at /usr/bin/elixir
+22:38:44.230 [debug] sent notification server -> client window/logMessage
+22:38:44.230 [info] [Project file:///home/alguien/Projects/elixir/automata] Finding or building engine
+22:38:44.230 [debug] sent notification server -> client window/logMessage
+22:38:44.230 [debug] sent request server -> client window/workDoneProgress/create
+22:38:44.230 [debug] sent notification server -> client $/progress
+22:38:46.006 [debug] Building engine: Namespacing 4 files:
+  New: 4
+  Changed: 0
+  Deleted: 4
+
+
+22:38:46.010 [debug] Building engine: Rewriting 0 app files
+
+22:38:46.012 [debug] Building engine: Rewriting .beam files
+ Found 0 protocols
+ Found 0 app beam files
+Finished namespacing .beam files
+
+22:38:46.013 [debug] Building engine: Rewriting 0 scripts
+
+22:38:46.014 [debug] Building engine: Rebuilding 0 boot files
+
+22:38:46.017 [debug] Building engine: Rewriting 0 config scripts.
+
+22:38:46.021 [info] Engine build available at: /home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns
+22:38:46.069 [info] ebin paths:
+["/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/patch/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_briefly/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_bunt/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_credo/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_deps_nix/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_elixir_sense/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_engine/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_file_system/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_forge/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_gen_lsp/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_hpax/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_jason/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_mint/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_nimble_options/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_nimble_parsec/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_path_glob/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_refactorex/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_schematic/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_snowflake/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_sourceror/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_spitfire/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_telemetry/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_typed_struct/ebin"]
+22:38:46.109 [debug] sent notification server -> client $/progress
+22:38:46.110 [debug] sent notification server -> client $/progress
+22:38:46.561 [debug] sent notification server -> client $/progress
+22:38:46.566 [debug] Node port message: ok
+
+22:38:46.819 [debug] Node port message:     warning: redefining module Automata (current version defined in memory)
+    â
+  1 â defmodule Automata do
+    â ~~~~~~~~~~~~~~~~~~~~~
+    â
+    ââ /home/alguien/Projects/elixir/automata/mix.exs:1: Automata (module)
+
+
+22:38:46.846 [debug] Node port message: Error while loading project :automata at /home/alguien/Projects/elixir/automata
+
+22:38:46.846 [debug] sent notification server -> client $/progress
+22:38:46.846 [error] Process #PID<0.179.0> terminating
+** (exit) {:badrpc, {:EXIT, {{:badmatch, {:error, {:exception, {%{message: "Could not find a Mix project at /home/alguien/Projects/elixir/automata/mix.exs", __struct__: Mix.Error, __exception__: true, mix: 1}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}, [{XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 81]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}
+    (stdlib 6.2.2.1) gen_server.erl:2210: :gen_server.init_it/6
+    (stdlib 6.2.2.1) proc_lib.erl:329: :proc_lib.init_p_do_apply/3
+Initial Call: XPExpert.Project.Node.init/1
+Ancestors: [:"automata::supervisor", XPExpert.ProjectSupervisor, XPExpert.Supervisor, #PID<0.162.0>]
+Message Queue Length: 0
+Messages: []
+Links: [#PID<0.176.0>]
+Dictionary: []
+Trapping Exits: false
+Status: :running
+Heap Size: 4185
+Stack Size: 29
+Reductions: 22933
+22:38:46.848 [error] Child {XPExpert.Project.Node, "automata"} of Supervisor :"automata::supervisor" failed to start
+** (exit) {:badrpc, {:EXIT, {{:badmatch, {:error, {:exception, {%{message: "Could not find a Mix project at /home/alguien/Projects/elixir/automata/mix.exs", __struct__: Mix.Error, __exception__: true, mix: 1}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}, [{XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 81]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}
+Start Call: XPExpert.Project.Node.start_link(%XPForge.Project{root_uri: "file:///home/alguien/Projects/elixir/automata", mix_exs_uri: "file:///home/alguien/Projects/elixir/automata/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 1391})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:46.849 [info] Child {XPExpert.EngineSupervisor, "automata"} of Supervisor :"automata::supervisor" started
+Pid: #PID<0.192.0>
+Start Call: XPExpert.EngineSupervisor.start_link(%XPForge.Project{root_uri: "file:///home/alguien/Projects/elixir/automata", mix_exs_uri: "file:///home/alguien/Projects/elixir/automata/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 1391})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:46.850 [debug] sent request server -> client window/workDoneProgress/create
+22:38:46.850 [debug] sent notification server -> client $/progress
+22:38:46.851 [error] Failed to start project node for automata: {:shutdown,
+ {:failed_to_start_child, {XPExpert.Project.Node, "automata"},
+  {:badrpc,
+   {:EXIT,
+    {{:badmatch,
+      {:error,
+       {:exception,
+        {%{
+           message: "Could not find a Mix project at /home/alguien/Projects/elixir/automata/mix.exs",
+           __struct__: Mix.Error,
+           __exception__: true,
+           mix: 1
+         },
+         [
+           {Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]},
+           {Mix.Project, :load_project, 2,
+            [file: ~c"lib/mix/project.ex", line: 968]},
+           {Mix.Project, :in_project, 4,
+            [file: ~c"lib/mix/project.ex", line: 468]},
+           {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]},
+           {XPEngine.Mix, :"-in_project/2-fun-0-", 3,
+            [file: ~c"lib/engine/mix.ex", line: 27]},
+           {:global, :trans, 4, [file: ~c"global.erl", line: 699]},
+           {XPEngine.Bootstrap, :maybe_change_directory, 1,
+            [file: ~c"lib/engine/bootstrap.ex", line: 82]},
+           {XPEngine.Bootstrap, :init, 4,
+            [file: ~c"lib/engine/bootstrap.ex", line: 33]}
+         ]},
+        [
+          {Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]},
+          {Mix.Project, :load_project, 2,
+           [file: ~c"lib/mix/project.ex", line: 968]},
+          {Mix.Project, :in_project, 4,
+           [file: ~c"lib/mix/project.ex", line: 468]},
+          {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]},
+          {XPEngine.Mix, :"-in_project/2-fun-0-", 3,
+           [file: ~c"lib/engine/mix.ex", line: 27]},
+          {:global, :trans, 4, [file: ~c"global.erl", line: 699]},
+          {XPEngine.Bootstrap, :maybe_change_directory, 1,
+           [file: ~c"lib/engine/bootstrap.ex", line: 82]},
+          {XPEngine.Bootstrap, :init, 4,
+           [file: ~c"lib/engine/bootstrap.ex", line: 33]}
+        ]}}},
+     [
+       {XPEngine.Bootstrap, :maybe_change_directory, 1,
+        [file: ~c"lib/engine/bootstrap.ex", line: 81]},
+       {XPEngine.Bootstrap, :init, 4,
+        [file: ~c"lib/engine/bootstrap.ex", line: 33]}
+     ]}}}}}
+22:38:46.852 [info] [Project file:///home/alguien/Projects/elixir/automata] Found elixir executable at /usr/bin/elixir
+22:38:46.852 [debug] sent notification server -> client window/logMessage
+22:38:46.852 [info] [Project file:///home/alguien/Projects/elixir/automata] Finding or building engine
+22:38:46.852 [debug] sent notification server -> client window/logMessage
+22:38:46.852 [debug] sent notification server -> client window/logMessage
+22:38:46.852 [debug] sent request server -> client window/workDoneProgress/create
+22:38:46.854 [error] [Project file:///home/alguien/Projects/elixir/automata] Failed to start child {XPExpert.Project.Node, "automata"}: {:badrpc, {:EXIT, {{:badmatch, {:error, {:exception, {%{message: "Could not find a Mix project at /home/alguien/Projects/elixir/automata/mix.exs", __struct__: Mix.Error, __exception__: true, mix: 1}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}, [{XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 81]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}
+22:38:46.854 [debug] sent notification server -> client window/logMessage
+22:38:46.854 [debug] sent notification server -> client window/showMessage
+22:38:46.854 [debug] sent notification server -> client $/progress
+22:38:48.141 [debug] Building engine: Namespacing 4 files:
+  New: 4
+  Changed: 0
+  Deleted: 4
+
+
+22:38:48.144 [debug] Building engine: Rewriting 0 app files
+
+22:38:48.145 [debug] Building engine: Rewriting .beam files
+
+22:38:48.145 [debug] Building engine:  Found 0 protocols
+
+22:38:48.145 [debug] Building engine:  Found 0 app beam files
+
+22:38:48.145 [debug] Building engine: Finished namespacing .beam files
+
+22:38:48.146 [debug] Building engine: Rewriting 0 scripts
+
+22:38:48.147 [debug] Building engine: Rebuilding 0 boot files
+
+22:38:48.148 [debug] Building engine: Rewriting 0 config scripts.
+
+22:38:48.151 [info] Engine build available at: /home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns
+22:38:48.182 [info] ebin paths:
+["/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/patch/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_briefly/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_bunt/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_credo/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_deps_nix/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_elixir_sense/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_engine/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_file_system/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_forge/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_gen_lsp/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_hpax/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_jason/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_mint/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_nimble_options/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_nimble_parsec/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_path_glob/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_refactorex/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_schematic/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_snowflake/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_sourceror/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_spitfire/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_telemetry/ebin",
+ "/home/alguien/.local/share/Expert/0.1.0-59489c7/elixir-1.18.3-erts-15.2.7/f831d17565b699184bd04f88e3bdce7b/_build/dev_ns/lib/xp_typed_struct/ebin"]
+22:38:48.209 [debug] sent notification server -> client $/progress
+22:38:48.209 [debug] sent notification server -> client $/progress
+22:38:48.489 [debug] sent notification server -> client $/progress
+22:38:48.492 [debug] Node port message: ok
+
+22:38:48.710 [debug] Node port message:     warning: redefining module Automata (current version defined in memory)
+    â
+  1 â defmodule Automata do
+    â ~~~~~~~~~~~~~~~~~~~~~
+    â
+    ââ /home/alguien/Projects/elixir/automata/mix.exs:1: Automata (module)
+
+
+22:38:48.728 [debug] Node port message: Error while loading project :automata at /home/alguien/Projects/elixir/automata
+
+22:38:48.728 [debug] sent notification server -> client $/progress
+22:38:48.729 [error] Process #PID<0.193.0> terminating
+** (exit) {:badrpc, {:EXIT, {{:badmatch, {:error, {:exception, {%{message: "Could not find a Mix project at /home/alguien/Projects/elixir/automata/mix.exs", __struct__: Mix.Error, __exception__: true, mix: 1}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}, [{XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 81]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}
+    (stdlib 6.2.2.1) gen_server.erl:2210: :gen_server.init_it/6
+    (stdlib 6.2.2.1) proc_lib.erl:329: :proc_lib.init_p_do_apply/3
+Initial Call: XPExpert.Project.Node.init/1
+Ancestors: [:"automata::supervisor", XPExpert.ProjectSupervisor, XPExpert.Supervisor, #PID<0.162.0>]
+Message Queue Length: 0
+Messages: []
+Links: [#PID<0.191.0>]
+Dictionary: []
+Trapping Exits: false
+Status: :running
+Heap Size: 6772
+Stack Size: 29
+Reductions: 20268
+22:38:48.730 [error] Child {XPExpert.Project.Node, "automata"} of Supervisor :"automata::supervisor" failed to start
+** (exit) {:badrpc, {:EXIT, {{:badmatch, {:error, {:exception, {%{message: "Could not find a Mix project at /home/alguien/Projects/elixir/automata/mix.exs", __struct__: Mix.Error, __exception__: true, mix: 1}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}, [{Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]}, {Mix.Project, :load_project, 2, [file: ~c"lib/mix/project.ex", line: 968]}, {Mix.Project, :in_project, 4, [file: ~c"lib/mix/project.ex", line: 468]}, {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]}, {XPEngine.Mix, :"-in_project/2-fun-0-", 3, [file: ~c"lib/engine/mix.ex", line: 27]}, {:global, :trans, 4, [file: ~c"global.erl", line: 699]}, {XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 82]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}, [{XPEngine.Bootstrap, :maybe_change_directory, 1, [file: ~c"lib/engine/bootstrap.ex", line: 81]}, {XPEngine.Bootstrap, :init, 4, [file: ~c"lib/engine/bootstrap.ex", line: 33]}]}}}
+Start Call: XPExpert.Project.Node.start_link(%XPForge.Project{root_uri: "file:///home/alguien/Projects/elixir/automata", mix_exs_uri: "file:///home/alguien/Projects/elixir/automata/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 1391})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+22:38:48.732 [error] Failed to start project node for automata: {:shutdown,
+ {:failed_to_start_child, {XPExpert.Project.Node, "automata"},
+  {:badrpc,
+   {:EXIT,
+    {{:badmatch,
+      {:error,
+       {:exception,
+        {%{
+           message: "Could not find a Mix project at /home/alguien/Projects/elixir/automata/mix.exs",
+           __struct__: Mix.Error,
+           __exception__: true,
+           mix: 1
+         },
+         [
+           {Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]},
+           {Mix.Project, :load_project, 2,
+            [file: ~c"lib/mix/project.ex", line: 968]},
+           {Mix.Project, :in_project, 4,
+            [file: ~c"lib/mix/project.ex", line: 468]},
+           {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]},
+           {XPEngine.Mix, :"-in_project/2-fun-0-", 3,
+            [file: ~c"lib/engine/mix.ex", line: 27]},
+           {:global, :trans, 4, [file: ~c"global.erl", line: 699]},
+           {XPEngine.Bootstrap, :maybe_change_directory, 1,
+            [file: ~c"lib/engine/bootstrap.ex", line: 82]},
+           {XPEngine.Bootstrap, :init, 4,
+            [file: ~c"lib/engine/bootstrap.ex", line: 33]}
+         ]},
+        [
+          {Mix, :raise, 2, [file: ~c"lib/mix.ex", line: 618]},
+          {Mix.Project, :load_project, 2,
+           [file: ~c"lib/mix/project.ex", line: 968]},
+          {Mix.Project, :in_project, 4,
+           [file: ~c"lib/mix/project.ex", line: 468]},
+          {File, :cd!, 2, [file: ~c"lib/file.ex", line: 1665]},
+          {XPEngine.Mix, :"-in_project/2-fun-0-", 3,
+           [file: ~c"lib/engine/mix.ex", line: 27]},
+          {:global, :trans, 4, [file: ~c"global.erl", line: 699]},
+          {XPEngine.Bootstrap, :maybe_change_directory, 1,
+           [file: ~c"lib/engine/bootstrap.ex", line: 82]},
+          {XPEngine.Bootstrap, :init, 4,
+           [file: ~c"lib/engine/bootstrap.ex", line: 33]}
+        ]}}},
+     [
+       {XPEngine.Bootstrap, :maybe_change_directory, 1,
+        [file: ~c"lib/engine/bootstrap.ex", line: 81]},
+       {XPEngine.Bootstrap, :init, 4,
+        [file: ~c"lib/engine/bootstrap.ex", line: 33]}
+     ]}}}}}
+22:38:48.732 [debug] sent notification server -> client window/logMessage
+22:39:11.977 [debug] handled notification client -> server textDocument/didChange in 9ms
+22:39:12.357 [debug] handled notification client -> server textDocument/didChange in 466µs
+22:39:16.889 [debug] handled notification client -> server textDocument/didChange in 773µs
+22:39:17.864 [info] Child of Supervisor :inet_gethost_native_sup started
+Pid: #PID<0.201.0>
+Start Call: :inet_gethost_native.init([])
+22:39:17.864 [debug] Child :inet_gethost_native_sup of Supervisor :kernel_safe_sup started
+Pid: #PID<0.200.0>
+Start Call: :inet_gethost_native.start_link()
+Restart: :temporary
+Shutdown: 1000
+Type: :worker
+22:39:17.867 [error] ** (ErlangError) Erlang error: {:erpc, :noconnection}
+    (kernel 10.2.7.1) erpc.erl:1376: :erpc.call/5
+    (xp_expert 0.1.0-59489c7) lib/expert/state.ex:212: XPExpert.State.apply/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:277: XPExpert.apply_to_state/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:207: XPExpert.handle_notification/2
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:600: anonymous fn/2 in XPGenLSP.handle_notification_sync/3
+    (xp_telemetry 1.3.0) /home/runner/work/expert/expert/apps/expert/deps/telemetry/src/telemetry.erl:324: :xp_telemetry.span/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:599: XPGenLSP.handle_notification_sync/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:502: XPGenLSP.loop/3
+
+22:39:17.867 [debug] sent notification server -> client window/logMessage
+22:39:38.247 [debug] handled notification client -> server textDocument/didChange in 818µs
+22:39:38.661 [debug] handled notification client -> server textDocument/didChange in 424µs
+22:39:38.928 [debug] handled notification client -> server textDocument/didChange in 374µs
+22:39:39.867 [error] ** (ErlangError) Erlang error: {:erpc, :noconnection}
+    (kernel 10.2.7.1) erpc.erl:1376: :erpc.call/5
+    (xp_expert 0.1.0-59489c7) lib/expert/state.ex:212: XPExpert.State.apply/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:277: XPExpert.apply_to_state/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:207: XPExpert.handle_notification/2
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:600: anonymous fn/2 in XPGenLSP.handle_notification_sync/3
+    (xp_telemetry 1.3.0) /home/runner/work/expert/expert/apps/expert/deps/telemetry/src/telemetry.erl:324: :xp_telemetry.span/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:599: XPGenLSP.handle_notification_sync/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:502: XPGenLSP.loop/3
+
+22:39:39.867 [debug] sent notification server -> client window/logMessage
+22:39:50.293 [debug] handled notification client -> server textDocument/didChange in 622µs
+22:39:50.770 [debug] handled notification client -> server textDocument/didChange in 350µs
+22:39:51.759 [error] ** (ErlangError) Erlang error: {:erpc, :noconnection}
+    (kernel 10.2.7.1) erpc.erl:1376: :erpc.call/5
+    (xp_expert 0.1.0-59489c7) lib/expert/state.ex:212: XPExpert.State.apply/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:277: XPExpert.apply_to_state/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:207: XPExpert.handle_notification/2
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:600: anonymous fn/2 in XPGenLSP.handle_notification_sync/3
+    (xp_telemetry 1.3.0) /home/runner/work/expert/expert/apps/expert/deps/telemetry/src/telemetry.erl:324: :xp_telemetry.span/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:599: XPGenLSP.handle_notification_sync/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:502: XPGenLSP.loop/3
+
+22:39:51.759 [debug] sent notification server -> client window/logMessage
+22:40:01.367 [debug] handled notification client -> server textDocument/didChange in 353µs
+22:40:02.603 [error] ** (ErlangError) Erlang error: {:erpc, :noconnection}
+    (kernel 10.2.7.1) erpc.erl:1376: :erpc.call/5
+    (xp_expert 0.1.0-59489c7) lib/expert/state.ex:212: XPExpert.State.apply/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:277: XPExpert.apply_to_state/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:207: XPExpert.handle_notification/2
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:600: anonymous fn/2 in XPGenLSP.handle_notification_sync/3
+    (xp_telemetry 1.3.0) /home/runner/work/expert/expert/apps/expert/deps/telemetry/src/telemetry.erl:324: :xp_telemetry.span/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:599: XPGenLSP.handle_notification_sync/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:502: XPGenLSP.loop/3
+
+22:40:02.603 [debug] sent notification server -> client window/logMessage
+22:40:05.207 [error] ** (ErlangError) Erlang error: {:erpc, :noconnection}
+    (kernel 10.2.7.1) erpc.erl:1376: :erpc.call/5
+    (xp_expert 0.1.0-59489c7) lib/expert/state.ex:212: XPExpert.State.apply/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:277: XPExpert.apply_to_state/2
+    (xp_expert 0.1.0-59489c7) lib/expert.ex:207: XPExpert.handle_notification/2
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:600: anonymous fn/2 in XPGenLSP.handle_notification_sync/3
+    (xp_telemetry 1.3.0) /home/runner/work/expert/expert/apps/expert/deps/telemetry/src/telemetry.erl:324: :xp_telemetry.span/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:599: XPGenLSP.handle_notification_sync/3
+    (xp_gen_lsp 0.11.3) lib/gen_lsp.ex:502: XPGenLSP.loop/3
+
+22:40:05.207 [debug] sent notification server -> client window/logMessage
+22:41:22.242 [debug] sent notification server -> client window/logMessage
+22:41:22.243 [info] Shutting down
+22:41:22.243 [debug] handled request client -> server shutdown in 1ms
