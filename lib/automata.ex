@@ -42,4 +42,29 @@ defmodule Automata do
 
     build_dfa_transitions(rest ++ new_to_explore, updated_all_states, updated_delta, nfa_delta, sigma)
   end
+
+  ## Parte 2 :b
+  @doc """
+  """
+  def e_closure(automata, r) do
+    {_q, _sigma, delta, _q0, _f} = automata
+    
+    do_e_closure(MapSet.to_list(r), r, delta)
+  end
+  
+  defp do_e_closure([], visited, _delta), do: visited
+  
+  defp do_e_closure([current | rest], visited, delta) do
+    eps_transitions = Map.get(delta, {current, :epsilon}, [])
+  
+    new_states = Enum.filter(eps_transitions, fn s -> not MapSet.member?(visited, s) end)
+  
+
+    new_visited = Enum.reduce(new_states, visited, fn s, acc -> MapSet.put(acc, s) end)
+  
+
+    do_e_closure(new_states ++ rest, new_visited, delta)
+  end
+
 end
+
