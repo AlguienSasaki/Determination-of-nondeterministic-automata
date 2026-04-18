@@ -66,5 +66,53 @@ defmodule Automata do
     do_e_closure(new_states ++ rest, new_visited, delta)
   end
 
+  ## parte 3
+  @doc """
+  Implement the function e_closure/2, which receives the automaton as the first parameter and a set of states as the second. The function should return another set of states.
+  """
+def e_determinize(nfa) do
+  {_q, sigma, _delta, q0, f} = nfa
+  
+  start_state = e_closure(nfa, MapSet.new([q0]))
+  
+  {new_delta, all_states} = explore_reachable([start_state], MapSet.new([start_state]), %{}, nfa, sigma)
+  
+  nfa_final_set = MapSet.new(f)
+  final_states = Enum.filter(MapSet.to_list(all_states), fn r -> 
+    not MapSet.disjoint?(r, nfa_final_set)
+  end)
+
+  {MapSet.to_list(all_states), sigma, new_delta, start_state, final_states}
+end
+
+defp explore_reachable([], visited, dfa_delta, _nfa, _sigma), do: {dfa_delta, visited}
+
+defp explore_reachable([current_r | rest], visited, dfa_delta, nfa, sigma) do
+  {updated_delta, new_to_explore, updated_visited} = 
+    Enum.reduce(sigma, {dfa_delta, [], visited}, fn symbol, {acc_delta, acc_explore, acc_all} ->
+      
+      destinations = 
+        current_r
+        |> Enum.flat_map(fn q -> Map.get(elem(nfa, 2), {q, symbol}, []) end)
+        |> MapSet.new()
+
+      if MapSet.size(destinations) > 0 do
+        s = e_closure(nfa, destinations)
+        new_acc_delta = Map.put(acc_delta, {current_r, symbol}, s)
+        
+        if MapSet.member?(acc_all, s) do
+          {new_acc_delta, acc_explore, acc_all}
+        else
+          {new_acc_delta, [s | acc_explore], MapSet.put(acc_all, s)}
+        end
+      else
+        {acc_delta, acc_explore, acc_all}
+      end
+    end)
+
+  explore_reachable(rest ++ new_to_explore, updated_visited, updated_delta, nfa, sigma)
+end
+
+
 end
 
